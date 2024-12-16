@@ -1,0 +1,38 @@
+
+<main class="padding">
+    <div *ngIf="loading; else dataLoaded">
+      Loading data...
+    </div>
+    <ng-template #dataLoaded>
+        <div class="card padding borderRadius width100 heigh100">
+            <div class="flex horizontal justify_space">
+              <p class="width100">Staffs: </p>
+              <app-icon-button [props]="{'icon': 'add', 'text': 'Add', 'type': 'capsule'}" (click)="navigateTo('add', '')"/>
+            </div>
+            <hr class="width100 marginBottom marginTop">
+            <table class="width100 borderLightGray borderSolid borderHalf borderRadius padding">
+              <tr>
+                <th class="paddingHalf marginVerticalHalf text_middle text_center">Id</th>
+                <th class="paddingHalf marginVerticalHalf text_middle text_center">Name</th>
+                <th class="paddingHalf marginVerticalHalf text_middle text_left">Designation</th>
+                <th class="paddingHalf marginVerticalHalf text_middle text_center">Post</th>
+                <th class="paddingHalf marginVerticalHalf text_middle text_left">Salary</th>
+                <th class="paddingHalf marginVerticalHalf text_middle text_center">Controlls</th>
+              </tr>
+              <tr *ngFor="let staff of staffs" class="cardOnHover borderRadius">
+                <td class="paddingHalf marginVerticalHalf text_middle text_center">{{ staff.id }}</td>
+                <td class="paddingHalf marginVerticalHalf text_middle text_center">{{ staff.name }}</td>
+                <td class="paddingHalf marginVerticalHalf text_middle text_left">{{ staff.department_Name }}</td>
+                <td class="paddingHalf marginVerticalHalf text_middle text_center">{{ staff.post_Name }}</td>
+                <td class="paddingHalf marginVerticalHalf text_middle text_left">{{ staff.salary }}</td>
+                <td class="paddingHalf marginVerticalHalf flex horizontal gapHalf center">
+                  <app-icon-button [props]="{'icon': 'visibility', 'text': '', 'type': 'capsule'}" (click)="navigateTo('view', staff.id.toString())"/>
+                  <app-icon-button [props]="{'icon': 'edit', 'text': '', 'type': 'capsule'}" (click)="navigateTo('edit', staff.id.toString())"/>
+                  <app-icon-button [props]="{'icon': 'Delete', 'text': '', 'type': 'capsule'}" (click)="del(staff.id)"/>
+                </td>
+                
+              </tr>
+            </table>
+        </div>
+      </ng-template>
+  </main>

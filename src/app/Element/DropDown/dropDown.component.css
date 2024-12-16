@@ -1,0 +1,25 @@
+select {
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--dark);
+    color: var(--text);
+    border-radius: var(--roundingM);
+    border: 1px solid var(--dark-lite);
+  }
+select:focus {
+  outline: none;
+  border: 1px solid var(--primary)
+}
+
+select:invalid {
+  border: 1px solid var(--error);
+}
+  
+  button {
+    margin-top: 10px;
+  }
+  
+select option:hover {
+  background: transparent;
+  color: var(--primary)
+}

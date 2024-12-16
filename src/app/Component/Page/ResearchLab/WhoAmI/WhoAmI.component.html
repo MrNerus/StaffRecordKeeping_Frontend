@@ -1,0 +1,19 @@
+<main class="padding">
+    <p class="width100">What is your Name?</p>
+    <hr class="width100">
+
+    <div *ngIf="loading; else dataLoaded">
+        Loading data...
+    </div>
+    <ng-template #dataLoaded>
+        <div class="grid gridCol3 width100">
+            <label for="yourName" class="self_align_center">You Are</label>
+            <app-textBox #c_Name [props]="{
+                regex: '[a-zA-Z ]*', placeholder: 'Enter Your Name', type: 'text', icon: 'person', tooltip: 'A-Z, a-z', name: 'yourName',
+          id: 'yourName', isRequired: true, isReadonly: true, value: name
+        }" class="width100 isReadonly" />
+            <app-icon-button [props]="{'icon': 'Edit', 'text': 'Change Name', 'type': 'capsule'}"
+                (click)="navigateTo('IAm', '')" />
+        </div>
+    </ng-template>
+</main>

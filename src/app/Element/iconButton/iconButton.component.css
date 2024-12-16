@@ -1,0 +1,53 @@
+.icon-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-speed);
+    padding: 0 0 0.25rem 0;
+}
+
+.icon-button[data-mode = "disabled"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.icon-button[data-type = "capsule"] {
+    border-radius: 0.5rem;
+    background: var(--primary);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.icon-button[data-type="plain"]:before {
+    position: absolute;
+    background-color: var(--text);
+    content: '';
+    height: 0px;
+    bottom: 0px;
+    left: 50%;
+    width: 0px;
+    transition: var(--transition-speed)
+  }
+
+  .icon-button[data-type="plain"]:hover {
+    color: var(--primary);
+  }
+
+  .icon-button[data-type="plain"]:hover:before {
+      color: var(--primary);
+      background-color: var(--primary);
+      height: 0.05rem;
+      width: 100%;
+      left: 0px;
+    }
+.icon-button * {
+  vertical-align: middle;
+}

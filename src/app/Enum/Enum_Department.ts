@@ -1,0 +1,10 @@
+export enum Enum_Department {
+    NOT_ASSIGNED,
+    ADMINISTRATION,
+    SUPPORT,
+    DEVELOPMENT,
+    SALES_AND_MARKETING,
+    ACCOUNT,
+    HELPER,
+    INVESTOR
+}

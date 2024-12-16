@@ -1,0 +1,5 @@
+form {
+    box-shadow: 0.5rem 0.5rem 0.5rem color-mix(in srgb, var(--dark) 80%, #00000000 20%),
+                -0.5rem -0.5rem 0.5rem color-mix(in srgb, var(--dark) 20%, #00000000 80%);
+}
+

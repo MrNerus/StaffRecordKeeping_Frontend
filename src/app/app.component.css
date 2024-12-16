@@ -1,0 +1,22 @@
+.main {
+    display: grid;
+    grid-template-columns: 2rem 1fr;;
+}
+
+.fullPage {
+    height: 100dvh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+}
+
+.sideNavContainer {
+    position: relative;
+    flex-shrink: 0;
+    width: 3rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    
+}
+
+

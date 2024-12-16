@@ -1,0 +1,11 @@
+
+<label class="switch {{props.isReadonly ? 'cursor_readonly' : ''}}">
+    <input #d_input type="checkbox" 
+        [attr.name]="props.name.trim() !== '' ? props.name.trim() : null"
+        [attr.id]="props.id.trim() !== '' ? props.id.trim() : null"
+        [attr.checked]="props.isChecked ? true : null"
+        [attr.class]="props.isReadonly ? 'cursor_readonly' : null"
+        (click)="props.isReadonly ? 'return false' : null"
+        (keydown)="props.isReadonly ? 'return false' : null" />
+    <span class="slider round"></span>
+</label>

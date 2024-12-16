@@ -1,0 +1,15 @@
+<div class="universal-textbox {{attr_isReadonly ? 'cursor_readonly' : ''}}">
+    <span class="material-symbols-rounded" *ngIf="ele_icon != null && ele_icon !== ''">{{ele_icon.trim()}}</span>
+    
+    <input #d_input
+        [attr.pattern]="attr_regex.trim() !== '' ? attr_regex : null"
+        [attr.placeholder]="attr_placeholder.trim() !== '' ? attr_placeholder : null"
+        [attr.value]="attr_value.trim() !== '' ? attr_value : null"
+        [attr.type]="attr_type.trim() !== '' ? attr_type : 'text'"
+        [attr.name]="attr_name.trim() !== '' ? attr_name : null"
+        [attr.id]="attr_id.trim() !== '' ? attr_id : null"
+        [attr.required]="attr_isRequired ? true : null"
+        [attr.readonly]="attr_isReadonly ? true : null"
+    />
+    <div class="tooltip" *ngIf="ele_tooltip.trim() !== ''">{{ele_tooltip.trim()}}</div>
+  </div>

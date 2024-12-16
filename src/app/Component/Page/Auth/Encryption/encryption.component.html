@@ -1,0 +1,45 @@
+<main class="padding">
+    <div class="flex vertical align_center gap borderRadius paddingHalf">
+        <p class="width100">IMS Encryption</p>
+        <hr class="width100">
+        <div class="grid gridCol4 width100 gap">
+            <label for="ToEncrypt" class="self_align_center">Encrypt:</label>
+            <app-textBox #c_ToEncrypt [props]="{
+                type: 'text', icon: 'encrypted_off', name: 'ToEncrypt', id: 'ToEncrypt', isRequired: true
+                }" class="width100" />
+            <div *ngIf="loading_Encrypted; else encryptedLoaded">
+                Encrypting...
+            </div>
+            <ng-template #encryptedLoaded>
+                <app-textBox #c_Encrypted [props]="{
+                    type: 'text', icon: 'encrypted', name: 'Encrypted', id: 'Encrypted', isReadonly: true
+                    }" class="width100" />
+            </ng-template>
+            <app-icon-button [props]="{'icon': 'encrypted', 'text': 'Encrypt', 'type': 'capsule'}"
+                (click)="encrypt()" />
+        </div>
+        <div class="grid gridCol4 width100 gap">
+            <label for="ToDecrypt" class="self_align_center">Decrypt:</label>
+            <app-textBox #c_ToDecrypt [props]="{
+                type: 'text', icon: 'encrypted', name: 'ToDecrypt', id: 'ToDecrypt', isRequired: true
+                }" class="width100" />
+            <div *ngIf="loading_Encrypted; else decryptedLoaded">
+                Decrypting...
+            </div>
+            <ng-template #decryptedLoaded>
+                <app-textBox #c_Decrypted [props]="{
+                    type: 'text', icon: 'encrypted', name: 'Encrypted', id: 'Encrypted', isReadonly: true
+                    }" class="width100" />
+            </ng-template>
+            <app-icon-button [props]="{'icon': 'encrypted_off', 'text': 'Decrypt', 'type': 'capsule'}"
+                (click)="decrypt()" />
+        </div>
+
+        <div class="grid gridCol4 width100">
+            <label for="IsAscci" class="self_align_center">Is Ascci:</label>
+            <div class="width100 span2Right">
+                <app-toggle #c_IsAscci [props]="{id: 'IsAscci', name: 'IsAscci', isChecked: false}" />
+            </div>
+        </div>
+    </div>
+</main>

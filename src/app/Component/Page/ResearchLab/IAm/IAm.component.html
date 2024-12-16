@@ -1,0 +1,20 @@
+<main class="padding">
+  <form action="/api/add" method="post" #form_IAm="ngForm" class="flex vertical align_center gap borderRadius paddingHalf" id="IAm">
+    <p class="width100">What is your Name?</p>
+    <hr class="width100">
+    <div class="grid gridCol3 width100">
+      <label for="yourName" class="self_align_center">My name is</label>
+      <app-textBox #c_Name [props]="{
+          regex: '[a-zA-Z ]*', placeholder: 'Enter Your Name', type: 'text', icon: 'add', tooltip: 'A-Z, a-z', name: 'yourName',
+        id: 'yourName', isRequired: true
+      }" class="width100 span2Right" />
+    </div>
+    
+    <div class="grid gridCol3 gap width100">
+      <app-icon-button [props]="{'icon': 'clear_all', 'text': 'Clear All', 'type': 'capsule'}" onClick="document.getElementById('IAm').reset();" />
+      <app-icon-button [props]="{'icon': 'keyboard_backspace', 'text': 'Back', 'type': 'capsule'}" (click)="navigateTo('WhoAmI', '')"/>
+      <app-icon-button [props]="{'icon': 'Add', 'text': 'Add', 'type': 'capsule'}" (click)="submit()" class="check_valid"/>
+    </div>
+
+  </form>
+</main>

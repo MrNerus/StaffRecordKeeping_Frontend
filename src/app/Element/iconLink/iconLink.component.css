@@ -1,0 +1,35 @@
+.icon-link {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-speed);
+    padding: 0 0 0.25rem 0;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .icon-link:before {
+    position: absolute;
+    background-color: var(--text);
+    content: '';
+    height: 0px;
+    bottom: 0px;
+    left: 50%;
+    width: 0px;
+    transition: var(--transition-speed)
+  }
+
+  .icon-link:hover {
+    color: var(--primary);
+  }
+
+  .icon-link:hover:before {
+    color: var(--primary);
+    background-color: var(--primary);
+    height: 0.05rem;
+    width: 100%;
+    left: 0px;
+  }

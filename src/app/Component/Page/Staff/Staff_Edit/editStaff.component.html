@@ -1,0 +1,51 @@
+<main class="padding">
+  <div *ngIf="loading; else dataLoaded">
+    Loading data...
+  </div>
+  <ng-template #dataLoaded>
+    <form action="/api/edit" method="post" #form_EditStaff="ngForm" class="flex vertical align_center gap borderRadius paddingHalf" id="editStaff">
+      <p class="width100">Add Staff</p>
+      <hr class="width100">
+      <div class="grid gridCol3 width100">
+        <label for="staffName" class="self_align_center">Staff Id:</label>
+        <app-textBox #c_Id [props]="{
+            regex: '[a-zA-Z ]*', type: 'text', icon: 'block', tooltip: 'A-Z, a-z', name: 'staffId', value: staff.id.toString(),
+          id: 'staffName', isRequired: true, isReadonly: true
+        }" class="width100 span2Right isReadonly" />
+      </div>
+      <div class="grid gridCol3 width100">
+        <label for="staffName" class="self_align_center">Staff Name:</label>
+        <app-textBox #c_Name [props]="{
+            regex: '[a-zA-Z ]*', placeholder: 'Enter Staff Name', type: 'text', icon: 'edit', tooltip: 'A-Z, a-z', name: 'staffName',
+          id: 'staffName', isRequired: true, value: staff.name
+        }" class="width100 span2Right" />
+      </div>
+      <div class="grid gridCol3 width100">
+        <label for="staffDept" class="self_align_center">Department:</label>
+          <app-dropdown #c_Department [props]="{
+              name: 'staffDept', id: 'staffDept', allowNone: false, options: drop_Department
+          }" class="width100 span2Right" />
+      </div>
+      <div class="grid gridCol3 width100">
+        <label for="staffPost" class="self_align_center">Designation:</label>
+          <app-dropdown #c_Post [props]="{
+              name: 'staffPost', id: 'staffPost', allowNone: false, options: drop_Post
+          }" class="width100 span2Right" />
+      </div>
+      <div class="grid gridCol3 width100">
+        <label for="staffSalary" class="self_align_center">Salary:</label>
+        <app-textBox #c_Salary [props]="{
+            regex: '[^\s][0-9\.\s]+', placeholder: 'Enter Subject Code', type: 'text', icon: 'add', tooltip: 'A-Z, a-z, 0-9, _, -', name: 'staffSalary',
+            id: 'staffSalary', isRequired: true, value: staff.salary.toString()
+        }" class="width100 span2Right" />
+      </div>
+      
+      
+      <div class="grid gridCol3 gap width100">
+        <app-icon-button [props]="{'icon': 'clear_all', 'text': 'Clear All', 'type': 'capsule'}" onClick="document.getElementById('editStaff').reset();" />
+        <app-icon-button [props]="{'icon': 'keyboard_backspace', 'text': 'Back', 'type': 'capsule'}" (click)="navigateTo('list', '')"/>
+        <app-icon-button [props]="{'icon': 'Save', 'text': 'Save', 'type': 'capsule'}" (click)="submit()" class="check_valid"/>
+      </div>
+    </form>
+  </ng-template>
+</main>

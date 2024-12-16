@@ -1,0 +1,8 @@
+<div class="{{_props.isReadonly ? 'cursor_readonly' : ''}}">
+  <input hidden type="text" value = {{_props.options[0].value}} #h_input/>
+  <select #d_select name={{_props.name}} id={{_props.id}} [attr.disabled]="_props.isReadonly ?? _props.isReadonly" (change)="select_Event()">
+    <option value="_" *ngIf="_props.allowNone === true"></option>
+    <option *ngFor="let option of _props.options" value={{option.value}} selected={{option.isDefault}}>{{option.text}}</option>
+  </select>
+</div>
+  

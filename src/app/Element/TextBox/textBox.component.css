@@ -1,0 +1,62 @@
+.universal-textbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border-radius: var(--roundingS);
+    border: 1px solid var(--dark);
+    transition: var(--transition-speed);
+    background: var(--dark);
+    color: var(--text);
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;;
+}
+
+.universal-textbox .tooltip {
+    position: absolute;
+    display: none;
+    flex-direction: row;
+    border-radius: var(--roundingS);
+    background: var(--dark);
+    transition: var(--transition-speed);
+    top: 110%;
+    padding: 0.5rem;
+    z-index: 1;
+    width: fit-content;
+}
+.universal-textbox .tooltip::before {
+    height: 0.25rem;
+    width: 0.25rem;
+    content: " ";
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%) rotate(45deg);
+    border-radius: 0.25rem;
+    background-color: var(--dark);
+}
+
+.universal-textbox input {
+    border: 0px;
+    background: transparent;
+    color: inherit;
+    outline: none;
+    width: 100%
+}
+
+.univarsal-textbox input:focus {
+    outline: none ;
+    border-width: 0px 0px 1px 0px;
+}
+
+.universal-textbox:has(> input:focus:not(:read-only), input:hover:not(:read-only)) .tooltip {
+    display: flex;
+}
+
+.universal-textbox:has(> input:invalid:not(:read-only)) {
+    border: 1px solid var(--error);
+}
+
+.universal-textbox .material-symbols-rounded {
+    font-size: 1rem;
+}

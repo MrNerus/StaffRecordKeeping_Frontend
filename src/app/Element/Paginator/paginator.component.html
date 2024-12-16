@@ -1,0 +1,9 @@
+<main>
+    <div class="flex gap horizontal">
+        <app-icon-button [props]="{icon:'keyboard_double_arrow_left', text:''}" class="flex center" (click)="ToFirst()"/>
+        <app-icon-button [props]="{icon:'keyboard_arrow_left', text:''}" class="flex center" (click)="ToLeft()"/>
+        <app-icon-button [props]="{text:page.toString()}" *ngFor="let page of pages" class="flex center" [class.active]="page === page_Number" (click)="ToThis(page)"/>
+        <app-icon-button [props]="{icon:'keyboard_arrow_right', text:''}" class="flex center" (click)="ToRight()"/>
+        <app-icon-button [props]="{icon:'keyboard_double_arrow_right', text:''}" class="flex center" (click)="ToLast()"/>
+    </div>
+</main>
